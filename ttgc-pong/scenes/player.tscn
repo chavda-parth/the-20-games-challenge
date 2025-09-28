@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://urklhkqxyliq"]
+
+[ext_resource type="Texture2D" uid="uid://baiecj24makoi" path="res://sprites/player_sprites/tile_half_left.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://djxtkn46b1xo8" path="res://sprites/player_sprites/tile_half_right.png" id="2_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(40, 159.71793)
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="HalfSprite1" type="Sprite2D" parent="."]
+position = Vector2(-40, 0)
+texture = ExtResource("1_3vyb7")
+
+[node name="HalfSprite2" type="Sprite2D" parent="."]
+position = Vector2(40, 0)
+texture = ExtResource("2_g2els")
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_g2els")

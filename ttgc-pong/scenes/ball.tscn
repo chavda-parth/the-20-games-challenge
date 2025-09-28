@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://noqb8qddis2i"]
+
+[ext_resource type="Texture2D" uid="uid://wy40fbyblx2h" path="res://sprites/ball_sprites/blue_circle.png" id="2_f7cbr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7s4qf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
+radius = 40.792156
+
+[node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_7s4qf")
+gravity_scale = 0.0
+
+[node name="BallSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_f7cbr")
+
+[node name="BallCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cxlvu")

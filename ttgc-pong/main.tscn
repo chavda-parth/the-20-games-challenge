@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyqd3m7vsgwqv"]
+
+[ext_resource type="Texture2D" uid="uid://bbnmw5p6ibb47" path="res://sprites/other_sprites/tile_center.png" id="1_ig7tw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(1200, 4)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="TopWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, -304)
+physics_material_override = SubResource("PhysicsMaterial_0xm2m")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/TopWall"]
+rotation = -3.1415925
+scale = Vector2(15, 0.5)
+texture = ExtResource("1_ig7tw")
+
+[node name="WallCollider" type="CollisionShape2D" parent="Walls/TopWall"]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Bottomwall" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 304)
+physics_material_override = SubResource("PhysicsMaterial_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/Bottomwall"]
+scale = Vector2(15, 0.5)
+texture = ExtResource("1_ig7tw")
+
+[node name="WallCollider" type="CollisionShape2D" parent="Walls/Bottomwall"]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_h2yge")
