@@ -13,12 +13,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
 radius = 40.792156
 
-[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("ballSprite")]
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("ball_sprite")]
 physics_material_override = SubResource("PhysicsMaterial_7s4qf")
 gravity_scale = 0.0
 script = ExtResource("1_cxlvu")
-ballSprite = NodePath("BallSprite")
-allSprites = Array[Texture2D]([ExtResource("2_f7cbr"), ExtResource("3_fwo8l"), ExtResource("4_v8l5b"), ExtResource("5_iijjg"), ExtResource("6_f7kxq"), ExtResource("7_e8gir")])
+ball_sprite = NodePath("BallSprite")
+all_sprites = Array[Texture2D]([ExtResource("2_f7cbr"), ExtResource("3_fwo8l"), ExtResource("4_v8l5b"), ExtResource("5_iijjg"), ExtResource("6_f7kxq"), ExtResource("7_e8gir")])
 
 [node name="BallSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_f7cbr")

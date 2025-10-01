@@ -1,17 +1,19 @@
 class_name PongBall
 extends RigidBody2D
+## Responsible for the ball's movement, behaviour and visuals.
 
-@export var ballSprite: Sprite2D # The Sprite2D node representing the ball. 
-@export var allSprites: Array[Texture2D] # All available sprites for the ball.
+@export var ball_sprite: Sprite2D ## The current sprite of the ball.
 
-var total_sprites: int
+@export var all_sprites: Array[Texture2D] ## All available sprites for the ball.
+
+var total_sprites: int ## Total sprites in [member all_sprites].
 
 
 func _ready() -> void:
-	total_sprites = allSprites.size()
+	total_sprites = all_sprites.size()
 
 
+## Assign a random [Texture2D] from [member all_sprites] 
+## to [member ball_sprite].
 func randomize_ball_sprite() -> void:
-	ballSprite.texture = allSprites[randi_range(0, total_sprites)]
-	
-	
+	ball_sprite.texture = all_sprites[randi_range(0, total_sprites)]
