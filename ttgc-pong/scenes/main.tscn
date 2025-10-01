@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyqd3m7vsgwqv"]
+[gd_scene load_steps=5 format=3 uid="uid://cyqd3m7vsgwqv"]
 
 [ext_resource type="Texture2D" uid="uid://bbnmw5p6ibb47" path="res://sprites/other_sprites/tile_center.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://urklhkqxyliq" path="res://scenes/player.tscn" id="2_0xm2m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
 
@@ -38,3 +39,18 @@ texture = ExtResource("1_ig7tw")
 [node name="WallCollider" type="CollisionShape2D" parent="Walls/Bottomwall"]
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="PlayerOneParent" type="Node2D" parent="."]
+position = Vector2(-544, 0)
+metadata/_edit_group_ = true
+
+[node name="Player" parent="PlayerOneParent" instance=ExtResource("2_0xm2m")]
+rotation = 1.5707964
+
+[node name="PlayerTwoParent" type="Node2D" parent="."]
+position = Vector2(544, 0)
+metadata/_edit_group_ = true
+
+[node name="Player" parent="PlayerTwoParent" instance=ExtResource("2_0xm2m")]
+rotation = -1.5707964
+player_type = 1

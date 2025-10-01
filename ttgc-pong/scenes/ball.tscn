@@ -1,15 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://noqb8qddis2i"]
+[gd_scene load_steps=10 format=3 uid="uid://noqb8qddis2i"]
 
+[ext_resource type="Script" uid="uid://bwu35ys5dv08t" path="res://scripts/ball.gd" id="1_cxlvu"]
 [ext_resource type="Texture2D" uid="uid://wy40fbyblx2h" path="res://sprites/ball_sprites/blue_circle.png" id="2_f7cbr"]
+[ext_resource type="Texture2D" uid="uid://b57lrpgkwmgih" path="res://sprites/ball_sprites/green_circle.png" id="3_fwo8l"]
+[ext_resource type="Texture2D" uid="uid://kneb7j4xks6i" path="res://sprites/ball_sprites/pink_circle.png" id="4_v8l5b"]
+[ext_resource type="Texture2D" uid="uid://bn4hyy2r2d348" path="res://sprites/ball_sprites/purple_circle.png" id="5_iijjg"]
+[ext_resource type="Texture2D" uid="uid://8kndvqbvelqm" path="res://sprites/ball_sprites/red_circle.png" id="6_f7kxq"]
+[ext_resource type="Texture2D" uid="uid://cphxdqllp6rme" path="res://sprites/ball_sprites/yellow_circle.png" id="7_e8gir"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7s4qf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
 radius = 40.792156
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("ballSprite")]
 physics_material_override = SubResource("PhysicsMaterial_7s4qf")
 gravity_scale = 0.0
+script = ExtResource("1_cxlvu")
+ballSprite = NodePath("BallSprite")
+allSprites = Array[Texture2D]([ExtResource("2_f7cbr"), ExtResource("3_fwo8l"), ExtResource("4_v8l5b"), ExtResource("5_iijjg"), ExtResource("6_f7kxq"), ExtResource("7_e8gir")])
 
 [node name="BallSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_f7cbr")
