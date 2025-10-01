@@ -1,12 +1,12 @@
 class_name PongPlayer
-extends RigidBody2D
+extends CharacterBody2D
 ## Responsible for detecting player input and simulating movement.
 
 ## The type of player this script is attached to.
 @export var player_type: PongEnums.PlayerType
 
 ## Movement speed of the player in engine specified unit.
-var movement_speed: float = 200.0
+@export var movement_speed: float = 500.0
 
 ## Key corresponding to up input for the player.
 const MOVE_UP_KEY: String = "move_up"
@@ -25,14 +25,17 @@ func _ready() -> void:
 			set_input_dict("move_up_2", "move_down_2")
 
 
-func _physics_process(delta: float) -> void:
-	var distance: float = movement_speed * delta
+func _physics_process(_delta: float) -> void:
+	var movement_direction: Vector2 = Vector2.ZERO
 	
+	#TODO: Fix input when both keys are pressed together.
 	if Input.is_action_pressed(input_dict[MOVE_UP_KEY]):
-		position.y -= distance
+		movement_direction = Vector2.UP	
 	elif Input.is_action_pressed(input_dict[MOVE_DOWN_KEY]):
-		position.y += distance
-
+		movement_direction = Vector2.DOWN
+		
+	velocity = movement_speed * movement_direction
+	move_and_slide()
 
 ## Maps [member input_dict] to specified values.[br]
 ## [param move_up_value]: the [String] value corresponding to
