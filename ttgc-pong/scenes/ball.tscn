@@ -8,20 +8,25 @@
 [ext_resource type="Texture2D" uid="uid://8kndvqbvelqm" path="res://sprites/ball_sprites/red_circle.png" id="6_f7kxq"]
 [ext_resource type="Texture2D" uid="uid://cphxdqllp6rme" path="res://sprites/ball_sprites/yellow_circle.png" id="7_e8gir"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7s4qf"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4m2kh"]
+friction = 0.0
+bounce = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
-radius = 40.792156
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s4qf"]
+radius = 20.0
 
-[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("ball_sprite")]
-physics_material_override = SubResource("PhysicsMaterial_7s4qf")
+[node name="Ball" type="Node2D"]
+
+[node name="BallPhysicsBody" type="RigidBody2D" parent="." node_paths=PackedStringArray("ball_sprite")]
+physics_material_override = SubResource("PhysicsMaterial_4m2kh")
 gravity_scale = 0.0
 script = ExtResource("1_cxlvu")
 ball_sprite = NodePath("BallSprite")
 all_sprites = Array[Texture2D]([ExtResource("2_f7cbr"), ExtResource("3_fwo8l"), ExtResource("4_v8l5b"), ExtResource("5_iijjg"), ExtResource("6_f7kxq"), ExtResource("7_e8gir")])
 
-[node name="BallSprite" type="Sprite2D" parent="."]
+[node name="BallSprite" type="Sprite2D" parent="BallPhysicsBody"]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_f7cbr")
 
-[node name="BallCollider" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_cxlvu")
+[node name="BallCollider" type="CollisionShape2D" parent="BallPhysicsBody"]
+shape = SubResource("CircleShape2D_7s4qf")

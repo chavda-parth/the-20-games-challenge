@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyqd3m7vsgwqv"]
+[gd_scene load_steps=6 format=3 uid="uid://cyqd3m7vsgwqv"]
 
 [ext_resource type="Texture2D" uid="uid://bbnmw5p6ibb47" path="res://sprites/other_sprites/tile_center.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://urklhkqxyliq" path="res://scenes/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://noqb8qddis2i" path="res://scenes/ball.tscn" id="3_sugp2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0xm2m"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(1200, 20)
@@ -56,3 +59,5 @@ metadata/_edit_group_ = true
 [node name="Player" parent="PlayerTwoParent" instance=ExtResource("2_0xm2m")]
 rotation = -1.5707964
 player_type = 1
+
+[node name="Ball" parent="." instance=ExtResource("3_sugp2")]
